@@ -1,19 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-    
-                
-              </style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -92,6 +77,18 @@
       font-size: 14px;
       color: #6c757d;
     }
+
+    /* Estilos para el mensaje de éxito (oculto por defecto) */
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -109,24 +106,53 @@
       </ul>
     </div>
 
-    <!-- Formulario conectado a MailerLite deededed -->
-    <form action="https://assets.mailerlite.com/jsonp/1852860/forms/168099109160355826/subscribe" method="post" target="_blank">
-      <input type="email" name="fields[email]" placeholder="Tu email" required />
-      <button type="submit">Enviar checklist</button>
-    </form>
+    <!-- Formulario embebido de MailerLite -->
+    <div id="mlb2-31999549" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-31999549">
+      <div class="ml-form-align-center">
+        <div class="ml-form-embedWrapper embedForm">
+          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1852860/forms/168099109160355826/subscribe" data-code="" method="post" target="_self">
+              <div class="ml-form-formContent">
+                <div class="ml-form-fieldRow ml-last-item">
+                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Tu email" autocomplete="email" required>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button type="submit" class="primary">Enviar checklist</button>
+                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Loading...</span>
+                </button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+          </div>
+          <div class="ml-form-successBody row-success" style="display: none;">
+            <div class="ml-form-successContent">
+              <h4>¡Gracias!</h4>
+              <p>Revisa tu email para descargar tu checklist.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="footer">
-      Por Andy Rodrez | Estrategia digital sin fluff
+      Por Andy Rodrez | Estrategia digital con lógica, no con magia
     </div>
   </div>
+
+  <!-- Script de MailerLite -->
+  <script>
+    function ml_webform_success_31999549() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-31999549 .row-success').show();
+      $('.ml-subscribe-form-31999549 .row-form').hide();
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v=176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
 </body>
 </html>
-
-
-    
-              <script>
-                              
-              </script>
-                        </body>
-                        </html>
-                    
