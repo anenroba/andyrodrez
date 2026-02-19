@@ -1,158 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Primer Lead en 48h - Andy Rodrez</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    body {
-      background: #f8f9fa;
-      color: #212529;
-      line-height: 1.6;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 16px;
-      color: #1a1a1a;
-    }
-    p {
-      margin-bottom: 20px;
-      font-size: 17px;
-    }
-    .highlight {
-      background: #e6f4ff;
-      padding: 24px;
-      border-radius: 12px;
-      margin: 24px 0;
-    }
-    .highlight ul {
-      padding-left: 20px;
-    }
-    .highlight li {
-      margin-bottom: 8px;
-    }
-    form {
-      margin-top: 24px;
-    }
-    input[type="email"] {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #1d9bf0;
-      color: white;
-      font-size: 17px;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0d7abf;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 24px;
-      font-size: 14px;
-      color: #6c757d;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy Rodrez | Smartlink</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* Paleta base de andyrodrez.com */
+            --bg-dark: #0f172a;
+            --text-white: #f8fafc;
+            
+            /* Colores de marca con opacidad para fondos */
+            --color-web: #3b82f6;
+            --color-whatsapp: #22c55e;
+            --color-instagram: #f43f5e;
+            
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-    /* Estilos para el mensaje de éxito (oculto por defecto) */
-    .success-message {
-      display: none;
-      background: #d4edda;
-      color: #155724;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      text-align: center;
-      font-size: 16px;
-    }
-  </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+            color: var(--text-white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile {
+            margin-bottom: 35px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid transparent;
+            background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
+                        linear-gradient(135deg, var(--color-web), #8b5cf6) border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        p.bio {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 18px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-white);
+            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* WEB: Azul Permanente */
+        .btn-web {
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+        }
+        .btn-web i:first-child { color: var(--color-web); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
+
+        /* WHATSAPP: Verde Permanente */
+        .btn-whatsapp {
+            border-color: rgba(34, 197, 94, 0.4);
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.1), transparent);
+        }
+        .btn-whatsapp i:first-child { color: var(--color-whatsapp); filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.5)); }
+
+        /* INSTAGRAM: Gradiente Permanente */
+        .btn-instagram {
+            border-color: rgba(244, 63, 94, 0.4);
+            background: linear-gradient(90deg, rgba(244, 63, 94, 0.1), transparent);
+        }
+        .btn-instagram i:first-child { color: var(--color-instagram); filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.5)); }
+
+        .link-text {
+            flex-grow: 1;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* Hover dinámico mejorado */
+        .link-card:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .btn-web:hover { border-color: var(--color-web); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+        .btn-whatsapp:hover { border-color: var(--color-whatsapp); box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+        .btn-instagram:hover { border-color: var(--color-instagram); box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
+
+        .chevron {
+            opacity: 0.4;
+            width: 18px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>¿Tu primer lead en 48h?</h1>
-    <p>Descarga gratis mi checklist de 5 pasos prácticos para generar tu primer lead en redes sociales —aunque no tengas seguidores, cámara profesional ni tiempo.</p>
-    
-    <div class="highlight">
-      <ul>
-        <li>✅ Cómo escribir una bio que atrae clientes (no solo likes)</li>
-        <li>✅ El tipo de contenido que genera mensajes (sin salir en cámara)</li>
-        <li>✅ Fórmula de caption que convierte en 15 segundos</li>
-        <li>✅ Dónde poner tu CTA para que no parezca spam</li>
-        <li>✅ Cómo seguir el lead sin ser molesto</li>
-      </ul>
-    </div>
 
-    <!-- Formulario embebido de MailerLite -->
-    <div id="mlb2-31999549" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-31999549">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1852860/forms/168099109160355826/subscribe" data-code="" method="post" target="_self">
-              <div class="ml-form-formContent">
-                <div class="ml-form-fieldRow ml-last-item">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Tu email" autocomplete="email" required>
-                  </div>
-                </div>
-              </div>
-              <input type="hidden" name="ml-submit" value="1">
-              <div class="ml-form-embedSubmit">
-                <button type="submit" class="primary">Enviar checklist</button>
-                <button disabled="disabled" style="display: none;" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div>
-                  <span class="sr-only">Loading...</span>
-                </button>
-              </div>
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-          <div class="ml-form-successBody row-success" style="display: none;">
-            <div class="ml-form-successContent">
-              <h4>¡Gracias!</h4>
-              <p>Revisa tu email para descargar tu checklist.</p>
-            </div>
-          </div>
+    <div class="container">
+        <!-- Perfil -->
+        <div class="profile">
+            <img src="https://andyrodrez.com/wp-content/uploads/2023/10/Andy-Rodrez-Avatar.jpg" alt="Andy Rodrez" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Andy+Rodrez&background=3b82f6&color=fff'">
+            <h1>Andy Rodrez</h1>
+            <p class="bio">Estratega Digital & Ex-Ingeniero.<br>Hago que tu presencia digital sea rentable.</p>
         </div>
-      </div>
+
+        <!-- Enlaces -->
+        <div class="links-container">
+            
+            <!-- Sitio Web -->
+            <a href="https://andyrodrez.com/" target="_blank" class="link-card btn-web">
+                <i data-lucide="globe"></i>
+                <span class="link-text">Visitar Mi Web</span>
+                <i data-lucide="chevron-right" class="chevron"></i>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/56977778989" target="_blank" class="link-card btn-whatsapp">
+                <i data-lucide="message-circle"></i>
+                <span class="link-text">WhatsApp Directo</span>
+                <i data-lucide="chevron-right" class="chevron"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/andy.rodrez/" target="_blank" class="link-card btn-instagram">
+                <i data-lucide="instagram"></i>
+                <span class="link-text">@andy.rodrez</span>
+                <i data-lucide="chevron-right" class="chevron"></i>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            ESTRATEGIA & DISEÑO © 2026
+        </div>
     </div>
 
-    <div class="footer">
-      Por Andy Rodrez | Estrategia digital con lógica, no con magia
-    </div>
-  </div>
-
-  <!-- Script de MailerLite -->
-  <script>
-    function ml_webform_success_31999549() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-31999549 .row-success').show();
-      $('.ml-subscribe-form-31999549 .row-form').hide();
-    }
-  </script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v=176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
+    <script>
+        // Inicializar iconos de Lucide
+        lucide.createIcons();
+    </script>
 </body>
 </html>
