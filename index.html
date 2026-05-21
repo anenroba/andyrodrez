@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andy Rodrez | Conecta conmigo</title>
-    <!-- Lucide Icons -->
+    
+    <!-- Lucide Icons para los iconos de los botones -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
         :root {
-            /* Paleta base de andyrodrez.com */
+            /* Paleta base */
             --bg-dark: #0f172a;
             --text-white: #f8fafc;
             
-            /* Colores de marca con opacidad para fondos */
+            /* Colores de marca para los botones */
             --color-web: #3b82f6;
-            --color-whatsapp: #22c55e;
-            --color-instagram: #f43f5e;
+            --color-download: #8b5cf6; /* Morado para descarga */
+            --color-video: #f43f5e;    /* Rojo/Rosado para video */
             
             --glass-border: rgba(255, 255, 255, 0.1);
         }
@@ -57,15 +59,12 @@
             margin-bottom: 35px;
         }
 
-        /* Modificado para alojar un logo en lugar de una foto de perfil */
         .logo-img {
             width: 120px;
             height: 120px;
-            object-fit: cover; /* Asegura que la imagen cubra todo el círculo */
+            object-fit: cover;
             margin-bottom: 20px;
-            border-radius: 50%; /* Hace el logo perfectamente circular */
-            
-            /* Borde con gradiente para destacar el logo circular */
+            border-radius: 50%;
             border: 3px solid transparent;
             background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
                         linear-gradient(135deg, var(--color-web), #8b5cf6) border-box;
@@ -84,7 +83,7 @@
             color: #94a3b8;
             margin-bottom: 30px;
             line-height: 1.5;
-            text-align: center;
+            padding: 0 10px;
         }
 
         .links-container {
@@ -108,21 +107,6 @@
             border: 1px solid var(--glass-border);
         }
 
-        /* Botón Descarga: Énfasis Principal */
-        .btn-download {
-            border-color: rgba(59, 130, 246, 0.5); /* Azul intenso */
-            background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15)); /* Gradiente azul a morado */
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
-        }
-        .btn-download i:first-child { color: var(--color-web); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
-
-        /* Botón Video: Acción Secundaria */
-        .btn-video {
-            border-color: rgba(244, 63, 94, 0.4); /* Rojo rosado estilo Youtube/Play */
-            background: linear-gradient(90deg, rgba(244, 63, 94, 0.1), transparent);
-        }
-        .btn-video i:first-child { color: var(--color-instagram); filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.5)); }
-
         .link-text {
             flex-grow: 1;
             text-align: center;
@@ -130,43 +114,54 @@
             font-size: 1.05rem;
         }
 
-        /* Hover dinámico mejorado */
+        .chevron {
+            opacity: 0.4;
+            width: 18px;
+        }
+
         .link-card:hover {
             transform: scale(1.02);
             background: rgba(255, 255, 255, 0.07);
         }
 
-        .btn-download:hover { border-color: var(--color-web); box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-        .btn-video:hover { border-color: var(--color-instagram); box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
-
-        .chevron {
-            opacity: 0.4;
-            width: 18px;
+        /* DESCARGA: Morado */
+        .btn-download {
+            border-color: rgba(139, 92, 246, 0.4);
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent);
         }
+        .btn-download i:first-child { color: var(--color-download); filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); }
+        .btn-download:hover { border-color: var(--color-download); box-shadow: 0 0 20px rgba(139, 92, 246, 0.2); }
+
+        /* VIDEO: Rojo/Rosado */
+        .btn-video {
+            border-color: rgba(244, 63, 94, 0.4);
+            background: linear-gradient(90deg, rgba(244, 63, 94, 0.1), transparent);
+        }
+        .btn-video i:first-child { color: var(--color-video); filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.5)); }
+        .btn-video:hover { border-color: var(--color-video); box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
 
         .footer {
             margin-top: 50px;
             font-size: 0.8rem;
             color: #475569;
             font-weight: 500;
-            line-height: 1.4;
         }
-
     </style>
 </head>
 <body>
     <div class="container">
+        
         <!-- Perfil / Logo -->
         <div class="profile">
             <!-- 
-                REEMPLAZA el 'src' con la ruta de tu logo, por ejemplo:
-                src="img/mi-logo.png" o src="logo.svg" 
+                El atributo onerror actúa como un salvavidas si la imagen logoAR.png 
+                tarda en cargar o no se encuentra, mostrando un fondo con tus iniciales.
             -->
             <img 
                 src="logoAR.png" 
                 alt="Logo Andy Rodrez" 
                 class="logo-img" 
-                onerror="this.src='https://placehold.co/400x200/1e293b/f8fafc?text=Logo+Aqui'"
+                onerror="this.src='https://placehold.co/120x120/1e293b/f8fafc?text=AR'"
             >
             <h1>Andy Rodrez</h1>
             <p class="bio">Ayudo a emprendedores neurodivergentes a hackear su código fuente y salir del caos.</p>
@@ -176,14 +171,14 @@
         <div class="links-container">
             
             <!-- Descarga Documento -->
-            <a href="#" target="_blank" class="link-card btn-download">
+            <a href="https://andyrodrez.com/" target="_blank" class="link-card btn-download">
                 <i data-lucide="download"></i>
                 <span class="link-text">Descargar The System Reset</span>
                 <i data-lucide="chevron-right" class="chevron"></i>
             </a>
 
             <!-- Ver Video -->
-            <a href="#" target="_blank" class="link-card btn-video">
+            <a href="https://youtube.com/playlist?list=PLQK8QmZYWQTZzQlEWu0Sv__7e4k87D5Tf&si=rJBa2eLV6qI5RkKY" target="_blank" class="link-card btn-video">
                 <i data-lucide="play-circle"></i>
                 <span class="link-text">Ver Video Explicativo</span>
                 <i data-lucide="chevron-right" class="chevron"></i>
@@ -197,7 +192,7 @@
     </div>
 
     <script>
-        // Inicializar iconos de Lucide
+        // Inicializar los iconos de Lucide (hace que las etiquetas <i> se conviertan en SVGs)
         lucide.createIcons();
     </script>
 </body>
