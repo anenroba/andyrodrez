@@ -57,16 +57,19 @@
             margin-bottom: 35px;
         }
 
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            margin-bottom: 15px;
+        /* Modificado para alojar un logo en lugar de una foto de perfil */
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover; /* Asegura que la imagen cubra todo el círculo */
+            margin-bottom: 20px;
+            border-radius: 50%; /* Hace el logo perfectamente circular */
+            
+            /* Borde con gradiente para destacar el logo circular */
             border: 3px solid transparent;
             background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
                         linear-gradient(135deg, var(--color-web), #8b5cf6) border-box;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
@@ -81,6 +84,7 @@
             color: #94a3b8;
             margin-bottom: 30px;
             line-height: 1.5;
+            text-align: center;
         }
 
         .links-container {
@@ -104,26 +108,20 @@
             border: 1px solid var(--glass-border);
         }
 
-        /* WEB: Azul Permanente */
-        .btn-web {
-            border-color: rgba(59, 130, 246, 0.4);
-            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+        /* Botón Descarga: Énfasis Principal */
+        .btn-download {
+            border-color: rgba(59, 130, 246, 0.5); /* Azul intenso */
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15)); /* Gradiente azul a morado */
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
         }
-        .btn-web i:first-child { color: var(--color-web); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
+        .btn-download i:first-child { color: var(--color-web); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
 
-        /* WHATSAPP: Verde Permanente */
-        .btn-whatsapp {
-            border-color: rgba(34, 197, 94, 0.4);
-            background: linear-gradient(90deg, rgba(34, 197, 94, 0.1), transparent);
-        }
-        .btn-whatsapp i:first-child { color: var(--color-whatsapp); filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.5)); }
-
-        /* INSTAGRAM: Gradiente Permanente */
-        .btn-instagram {
-            border-color: rgba(244, 63, 94, 0.4);
+        /* Botón Video: Acción Secundaria */
+        .btn-video {
+            border-color: rgba(244, 63, 94, 0.4); /* Rojo rosado estilo Youtube/Play */
             background: linear-gradient(90deg, rgba(244, 63, 94, 0.1), transparent);
         }
-        .btn-instagram i:first-child { color: var(--color-instagram); filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.5)); }
+        .btn-video i:first-child { color: var(--color-instagram); filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.5)); }
 
         .link-text {
             flex-grow: 1;
@@ -138,9 +136,8 @@
             background: rgba(255, 255, 255, 0.07);
         }
 
-        .btn-web:hover { border-color: var(--color-web); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
-        .btn-whatsapp:hover { border-color: var(--color-whatsapp); box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
-        .btn-instagram:hover { border-color: var(--color-instagram); box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
+        .btn-download:hover { border-color: var(--color-web); box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .btn-video:hover { border-color: var(--color-instagram); box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
 
         .chevron {
             opacity: 0.4;
@@ -152,48 +149,50 @@
             font-size: 0.8rem;
             color: #475569;
             font-weight: 500;
+            line-height: 1.4;
         }
 
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- Perfil -->
+        <!-- Perfil / Logo -->
         <div class="profile">
-            <img src="https://andyrodrez.com/wp-content/uploads/2023/10/Andy-Rodrez-Avatar.jpg" alt="Andy Rodrez" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Andy+Rodrez&background=3b82f6&color=fff'">
+            <!-- 
+                REEMPLAZA el 'src' con la ruta de tu logo, por ejemplo:
+                src="img/mi-logo.png" o src="logo.svg" 
+            -->
+            <img 
+                src="URL_DE_TU_LOGO_AQUI" 
+                alt="Logo Andy Rodrez" 
+                class="logo-img" 
+                onerror="this.src='https://placehold.co/400x200/1e293b/f8fafc?text=Logo+Aqui'"
+            >
             <h1>Andy Rodrez</h1>
-            <p class="bio">Estrategía en Marketing Digital.<br>Hago que tu presencia digital sea rentable.</p>
+            <p class="bio">Ayudo a emprendedores neurodivergentes a hackear su código fuente y salir del caos.</p>
         </div>
 
         <!-- Enlaces -->
         <div class="links-container">
             
-            <!-- Sitio Web -->
-            <a href="https://andyrodrez.com/" target="_blank" class="link-card btn-web">
-                <i data-lucide="globe"></i>
-                <span class="link-text">Visitar Mi Web</span>
+            <!-- Descarga Documento -->
+            <a href="#" target="_blank" class="link-card btn-download">
+                <i data-lucide="download"></i>
+                <span class="link-text">Descargar The System Reset</span>
                 <i data-lucide="chevron-right" class="chevron"></i>
             </a>
 
-            <!-- WhatsApp -->
-            <a href="https://wa.me/56977778989" target="_blank" class="link-card btn-whatsapp">
-                <i data-lucide="message-circle"></i>
-                <span class="link-text">WhatsApp Directo</span>
-                <i data-lucide="chevron-right" class="chevron"></i>
-            </a>
-
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/andy.rodrez/" target="_blank" class="link-card btn-instagram">
-                <i data-lucide="instagram"></i>
-                <span class="link-text">@andy.rodrez</span>
+            <!-- Ver Video -->
+            <a href="#" target="_blank" class="link-card btn-video">
+                <i data-lucide="play-circle"></i>
+                <span class="link-text">Ver Video Explicativo</span>
                 <i data-lucide="chevron-right" class="chevron"></i>
             </a>
 
         </div>
 
         <div class="footer">
-            ESTRATEGIA & DISEÑO © 2026
+            <p>© 2026 Andy Rodrez. Hecho para mentes diferentes.</p>
         </div>
     </div>
 
