@@ -1,48 +1,195 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Andy Rodres — ideas y sistemas simples para vivir y crear con una mente neurodivergente." />
-    <meta name="theme-color" content="#0b0b0d" />
-    <title>Andy Rodres — enlaces y proyectos</title>
-    <link rel="icon" href="assets/profile.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="page-shell">
-      <section class="profile" aria-labelledby="profile-name">
-        <div class="avatar-wrap"><img class="avatar" src="assets/profile.svg" alt="Retrato estilizado de Andy Rodres" /></div>
-        <p class="eyebrow">CREADOR · CHILE</p>
-        <h1 id="profile-name">Andy Rodres<span class="dot">.</span></h1>
-        <p class="intro">Ideas y sistemas simples para cuando la cabeza tiene demasiadas pestañas abiertas.</p>
-        <div class="social-row" aria-label="Redes sociales">
-          <a href="https://www.instagram.com/andy.rodrez/" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a>
-          <a href="https://www.youtube.com/@andyrodres" target="_blank" rel="noreferrer" aria-label="YouTube">▶</a>
-          <a href="https://www.tiktok.com/@andyrodres" target="_blank" rel="noreferrer" aria-label="TikTok">tt</a>
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy Rodrez - Enlaces y Contacto</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#090d16',
+                            card: '#131c2e',
+                            accent: '#10b981', // Emerald bunker vibe
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #090d16 0%, #111827 100%);
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(19, 28, 46, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .pulse-ring {
+            animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.04); opacity: 0.9; }
+        }
+        .btn-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-hover-effect:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="h-full flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md mx-auto">
+        
+        <!-- Profile Card -->
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-2xl text-center relative overflow-hidden">
+            
+            <!-- Decorative background blur orb (Bunker / Emerald & Slate theme) -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500 rounded-full filter blur-3xl opacity-15 pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-600 rounded-full filter blur-3xl opacity-15 pointer-events-none"></div>
+
+            <!-- Profile Picture Container -->
+            <div class="relative inline-block mb-4">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500 to-sky-500 pulse-ring"></div>
+                <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-slate-900 shadow-xl bg-slate-800 flex items-center justify-center">
+                    <!-- Espacio para la foto: Guarda tu imagen en la carpeta y reemplaza el src o usa tu foto local -->
+                    <img id="profileImage" src="https://placehold.co/400x400/131c2e/10b981?text=AR" alt="Andy Rodrez" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/131c2e/10b981?text=AR'">
+                </div>
+                <!-- Status badge -->
+                <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-4 border-slate-900 rounded-full" title="Regulando / En el Bunker"></span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-1">Andy Rodrez</h1>
+            <p class="text-emerald-400 font-medium text-sm sm:text-base mb-2">Building The Bunker 🏰</p>
+            <p class="text-slate-300 text-xs sm:text-sm max-w-xs mx-auto mb-6 leading-relaxed">
+                Sistemas simples y herramientas mentales para mentes que sobreprocesan. Regula tu energía y recupera el control.
+            </p>
+
+            <div class="space-y-3.5 w-full">
+                
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/56977778989?text=Hola%20Andy,%20vengo%20de%20tu%20canal%20y%20me%20gustaría%20contactarte" target="_blank" 
+                   class="btn-hover-effect flex items-center justify-between w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium shadow-lg shadow-emerald-950/40 group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-xs text-emerald-200 uppercase tracking-wider font-semibold">Escríbeme al WhatsApp</div>
+                            <div class="text-sm sm:text-base font-bold">+56 9 7777 8989</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-emerald-200 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- Instagram Button -->
+                <a href="https://instagram.com/andy.rodrez" target="_blank" 
+                   class="btn-hover-effect flex items-center justify-between w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-medium shadow-lg shadow-purple-950/40 group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-xs text-pink-100 uppercase tracking-wider font-semibold">Sígueme en Instagram</div>
+                            <div class="text-sm sm:text-base font-bold">@andy.rodrez</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-pink-200 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- YouTube / Bunker Channel Button -->
+                <a href="https://www.youtube.com/@AndyRodrez" target="_blank" 
+                   class="btn-hover-effect flex items-center justify-between w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-red-600 to-rose-700 text-white font-medium shadow-lg shadow-red-950/40 group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-xs text-red-200 uppercase tracking-wider font-semibold">Canal de YouTube</div>
+                            <div class="text-sm sm:text-base font-bold">Building The Bunker</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-red-200 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <!-- Web Button -->
+                <a href="https://andyrodrez.com" target="_blank" 
+                   class="btn-hover-effect flex items-center justify-between w-full p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-medium shadow-lg shadow-sky-950/40 group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-xs text-sky-100 uppercase tracking-wider font-semibold">Visita mi Sitio Web</div>
+                            <div class="text-sm sm:text-base font-bold">andyrodrez.com</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-sky-200 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                <span>&copy; 2026 Andy Rodrez</span>
+                <button onclick="shareCard()" class="hover:text-emerald-400 transition-colors flex items-center space-x-1">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span>Compartir</span>
+                </button>
+            </div>
+
         </div>
-      </section>
 
-      <section class="links" aria-label="Enlaces principales">
-        <a class="link-card featured" href="https://www.youtube.com/@andyrodres" target="_blank" rel="noreferrer">
-          <span class="icon">▶</span><span><strong>Building The Bunker</strong><small>Sistemas que sobreviven a los días malos</small></span><span class="arrow">↗</span>
-        </a>
-        <a class="link-card" href="https://www.instagram.com/andy.rodrez/" target="_blank" rel="noreferrer">
-          <span class="icon">◎</span><span><strong>Instagram</strong><small>Ideas, escenas y cosas que sí pasan</small></span><span class="arrow">↗</span>
-        </a>
-        <a class="link-card" href="https://www.youtube.com/@andyrodres" target="_blank" rel="noreferrer">
-          <span class="icon">◉</span><span><strong>YouTube</strong><small>Videos para ordenar el mundo sin complicarlo</small></span><span class="arrow">↗</span>
-        </a>
-        <a class="link-card" href="https://www.tiktok.com/@andyrodres" target="_blank" rel="noreferrer">
-          <span class="icon">♪</span><span><strong>TikTok</strong><small>El resumen rápido, cuando alcanza</small></span><span class="arrow">↗</span>
-        </a>
-      </section>
+    </div>
 
-      <footer><span>andyrodres.com</span><span>© <span id="year"></span> Andy Rodres</span></footer>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-4 py-2 rounded-xl shadow-2xl border border-slate-700 text-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+        ¡Enlace copiado al portapapeles!
+    </div>
+
+    <script>
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Andy Rodrez - Building The Bunker',
+                    text: 'Sistemas simples para mentes que sobreprocesan.',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = window.location.href;
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                showToast();
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+    </script>
+</body>
 </html>
